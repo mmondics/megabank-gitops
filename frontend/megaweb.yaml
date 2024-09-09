@@ -1,0 +1,157 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: megaweb
+    app.kubernetes.io/component: megaweb
+    app.kubernetes.io/instance: megaweb
+    app.kubernetes.io/name: megaweb
+  name: megaweb
+  namespace: megabank
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      deployment: megaweb
+  template:
+    metadata:
+      labels:
+        deployment: megaweb
+    spec:
+      containers:
+      - env:
+        - name: ACCIDHISTORY_SVC_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: ACCIDHISTORY_SVC_HOST
+              name: setenv-jdbc-svc-client-megaweb
+        - name: ACCOUNTS_SVC_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: ACCOUNTS_SVC_HOST
+              name: setenv-jdbc-svc-client-megaweb
+        - name: ALTSQL_FILE
+          valueFrom:
+            configMapKeyRef:
+              key: ALTSQL_FILE
+              name: setenv-megaweb
+        - name: CUSTOMER_SVC_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: CUSTOMER_SVC_HOST
+              name: setenv-jdbc-svc-client-megaweb
+        - name: DBHOST
+          valueFrom:
+            configMapKeyRef:
+              key: DBHOST
+              name: cm-setenv-mbsvc
+        - name: DBNAME
+          valueFrom:
+            configMapKeyRef:
+              key: DBNAME
+              name: cm-setenv-mbsvc
+        - name: DBPASS
+          valueFrom:
+            secretKeyRef:
+              name: db2pass
+              key: DBPASS
+        - name: DBPORT
+          valueFrom:
+            configMapKeyRef:
+              key: DBPORT
+              name: cm-setenv-mbsvc
+        - name: DBSCHEMA
+          valueFrom:
+            configMapKeyRef:
+              key: DBSCHEMA
+              name: cm-setenv-mbsvc
+        - name: DBUSER
+          valueFrom:
+            configMapKeyRef:
+              key: DBUSER
+              name: cm-setenv-mbsvc
+        - name: DEPOSIT_SVC_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: DEPOSIT_SVC_HOST
+              name: setenv-jdbc-svc-client-megaweb
+        - name: HISTORY_SVC_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: HISTORY_SVC_HOST
+              name: setenv-jdbc-svc-client-megaweb
+        - name: INSERT_INTO_HISTORY
+          valueFrom:
+            configMapKeyRef:
+              key: INSERT_INTO_HISTORY
+              name: cm-setenv-mbsvc
+        - name: JDBCNAME
+          valueFrom:
+            configMapKeyRef:
+              key: JDBCNAME
+              name: cm-setenv-mbsvc
+        - name: LOGIN_SVC_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: LOGIN_SVC_HOST
+              name: setenv-jdbc-svc-client-megaweb
+        - name: LOGOUT_SVC_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: LOGOUT_SVC_HOST
+              name: setenv-jdbc-svc-client-megaweb
+        - name: MegaBankComponentClass
+          valueFrom:
+            configMapKeyRef:
+              key: MegaBankComponentClass
+              name: setenv-megaweb
+        - name: MegaCookieName
+          valueFrom:
+            configMapKeyRef:
+              key: MegaCookieName
+              name: setenv-megaweb
+        - name: TRANSFER_SVC_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: TRANSFER_SVC_HOST
+              name: setenv-jdbc-svc-client-megaweb
+        - name: WITHDRAW_SVC_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: WITHDRAW_SVC_HOST
+              name: setenv-jdbc-svc-client-megaweb
+        image: quay.io/mmondics/megaweb:090624-manifest
+        imagePullPolicy: IfNotPresent
+        name: megaweb
+        ports:
+        - containerPort: 9080
+          protocol: TCP
+        - containerPort: 9443
+          protocol: TCP
+        resources:
+          limits:
+            cpu: '4'
+      securityContext: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: megaweb
+    app.kubernetes.io/component: megaweb
+    app.kubernetes.io/instance: megaweb
+    app.kubernetes.io/name: megaweb
+  name: megaweb
+  namespace: megabank
+spec:
+  ports:
+  - name: 9080-tcp
+    port: 9080
+    protocol: TCP
+    targetPort: 9080
+  - name: 9443-tcp
+    port: 9443
+    protocol: TCP
+    targetPort: 9443
+  selector:
+    deployment: megaweb

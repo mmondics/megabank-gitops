@@ -1,0 +1,98 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mbutil
+    app.kubernetes.io/component: mbutil
+    app.kubernetes.io/instance: mbutil
+    app.kubernetes.io/name: mbutil
+  name: mbutil
+  namespace: megabank
+spec:
+  selector:
+    matchLabels:
+      deployment: mbutil
+  template:
+    metadata:
+      labels:
+        deployment: mbutil
+    spec:
+      containers:
+      - env:
+        - name: ALLOW_DUP_LOGON
+          valueFrom:
+            configMapKeyRef:
+              key: ALLOW_DUP_LOGON
+              name: setenv-megawebutil
+        - name: DBHOST
+          valueFrom:
+            configMapKeyRef:
+              key: DBHOST
+              name: setenv-megawebutil
+        - name: DBPASS
+          valueFrom:
+            secretKeyRef:
+              name: db2pass
+              key: DBPASS
+        - name: DBPORT
+          valueFrom:
+            configMapKeyRef:
+              key: DBPORT
+              name: setenv-megawebutil
+        - name: DBSCHEMA
+          valueFrom:
+            configMapKeyRef:
+              key: DBSCHEMA
+              name: setenv-megawebutil
+        - name: DBUSER
+          valueFrom:
+            configMapKeyRef:
+              key: DBUSER
+              name: setenv-megawebutil
+        - name: AUTOCOMMIT
+          valueFrom:
+            configMapKeyRef:
+              key: AUTOCOMMIT
+              name: setenv-megawebutil
+        - name: DBNAME
+          valueFrom:
+            configMapKeyRef:
+              key: DBNAME
+              name: setenv-megawebutil
+        - name: JDBCNAME
+          valueFrom:
+            configMapKeyRef:
+              key: JDBCNAME
+              name: setenv-megawebutil
+        image: quay.io/mmondics/mbutil:090624-manifest
+        imagePullPolicy: IfNotPresent
+        name: mbutil
+        ports:
+        - containerPort: 9443
+          protocol: TCP
+        - containerPort: 9080
+          protocol: TCP
+        resources: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mbutil
+    app.kubernetes.io/component: mbutil
+    app.kubernetes.io/instance: mbutil
+    app.kubernetes.io/name: mbutil
+  name: mbutil
+  namespace: megabank
+spec:
+  ports:
+  - name: 9080-tcp
+    port: 9080
+    protocol: TCP
+    targetPort: 9080
+  - name: 9443-tcp
+    port: 9443
+    protocol: TCP
+    targetPort: 9443
+  selector:
+    deployment: mbutil

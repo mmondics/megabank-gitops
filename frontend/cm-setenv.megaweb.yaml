@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: setenv-megaweb
+  namespace: megabank
+data:
+  ALTSQL_FILE: "db2_limits_20.sql"
+  MegaBankComponentClass: "com.ibm.cpo.mb.MegaBankJDBCWS"
+  MegaCookieName: "MEGABANK"

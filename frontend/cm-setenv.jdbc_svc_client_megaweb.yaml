@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: setenv-jdbc-svc-client-megaweb
+  namespace: megabank
+data:
+  LOGIN_SVC_HOST: "login.megabank-be.svc.cluster.local:9080"
+  CUSTOMER_SVC_HOST: "customer-svc.megabank-be.svc.cluster.local:9080"
+  DEPOSIT_SVC_HOST: "deposit.megabank-be.svc.cluster.local:9080"
+  WITHDRAW_SVC_HOST: "withdraw.megabank-be.svc.cluster.local:9080"
+  TRANSFER_SVC_HOST: "transfer.megabank-be.svc.cluster.local:9080"
+  HISTORY_SVC_HOST: "history.megabank-be.svc.cluster.local:9080"
+  ACCIDHISTORY_SVC_HOST: "accidhist.megabank-be.svc.cluster.local:9080"
+  ACCOUNTS_SVC_HOST: "accounts.megabank-be.svc.cluster.local:9080"
+  LOGOUT_SVC_HOST: "logout.megabank-be.svc.cluster.local:9080"

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: setenv-megawebutil
+  namespace: megabank
+data:
+  ALLOW_DUP_LOGON: "false"
+  AUTOCOMMIT: "false"
+  DBHOST: "c-db2ucluster-db2u.db2.svc.cluster.local"
+  DBNAME: "megabank"
+  DBPORT: "50000"
+  DBSCHEMA: "DB2INST1"
+  DBUSER: "db2inst1"
+  JDBCNAME: "jdbc/MegaBankDataSource"

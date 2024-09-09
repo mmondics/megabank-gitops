@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: megaweb
+    app.kubernetes.io/component: megaweb
+    app.kubernetes.io/instance: megaweb
+    app.kubernetes.io/name: megaweb
+  name: megaweb
+  namespace: megabank
+spec:
+  host: megaweb-megabank.apps.sdmt.cpolab.ibm.com
+  port:
+    targetPort: 9080-tcp
+  to:
+    kind: Service
+    name: megaweb

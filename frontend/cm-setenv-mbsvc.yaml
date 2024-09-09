@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-setenv-mbsvc
+  namespace: megabank
+data:
+  ALTSQL_FILE: "db2_limits_20.sql"
+  DBHOST: "c-db2ucluster-db2u.db2.svc.cluster.local"
+  DBUSER: "db2inst1"
+  DBNAME: "megabank"
+  DBPORT: "50000"
+  DBSCHEMA: "DB2INST1"
+  JDBCNAME: "jdbc/MegaBankDataSource"
+  INSERT_INTO_HISTORY: "false"

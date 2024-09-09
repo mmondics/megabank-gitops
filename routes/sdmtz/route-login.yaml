@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: login
+    app.kubernetes.io/component: login
+    app.kubernetes.io/instance: login
+    app.kubernetes.io/name: mbsvc
+  name: login
+  namespace: megabank-be
+spec:
+  host: login-megabank-be.apps.sdmtz.cpolab.ibm.com
+  port:
+    targetPort: 9080-tcp
+  to:
+    kind: Service
+    name: login

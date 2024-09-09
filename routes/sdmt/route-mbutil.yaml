@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: mbutil
+    app.kubernetes.io/component: mbutil
+    app.kubernetes.io/instance: mbutil
+    app.kubernetes.io/name: mbutil
+  name: mbutil
+  namespace: megabank
+spec:
+  host: mbutil-megabank.apps.sdmt.cpolab.ibm.com
+  port:
+    targetPort: 9080-tcp
+  to:
+    kind: Service
+    name: mbutil
