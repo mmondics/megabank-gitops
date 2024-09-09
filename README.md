@@ -12,8 +12,8 @@
 2. Create a secret in both projects named `db2pass` that has a key-value pair containing your Db2 password.
 
     ```text
-    oc -n megabank create secret generic --from-literal=DBPASS=<your_db2_password>
-    oc -n megabank-be create secret generic --from-literal=DBPASS=<your_db2_password>
+    oc -n megabank create secret generic db2pass --from-literal=DBPASS=<your_db2_password>
+    oc -n megabank-be create secret generic db2pass --from-literal=DBPASS=<your_db2_password>
     ```
     
     *Note*: If your Db2 instance is deployed via a `db2ucluster` on the same cluster as Megabank, you can find the password as follows: 
@@ -37,3 +37,5 @@
     ```text
     oc apply -f frontend/ -f backend/
     ```
+
+5. Access MegaBank at http://<your_route_host>/MegaBank
