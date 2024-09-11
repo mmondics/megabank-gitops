@@ -9,7 +9,7 @@ metadata:
   name: megaweb
   namespace: megabank
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       deployment: megaweb
@@ -130,7 +130,7 @@ spec:
           protocol: TCP
         resources:
           limits:
-            cpu: '2'
+            cpu: '3'
       securityContext: {}
 ---
 apiVersion: v1
