@@ -72,9 +72,9 @@ spec:
           protocol: TCP
         - containerPort: 9443
           protocol: TCP
-        # resources:
-        #   limits:
-        #     cpu: '1500m'
+        resources:
+          limits:
+            cpu: '1500m'
 ---
 apiVersion: v1
 kind: Service
