@@ -128,9 +128,9 @@ spec:
           protocol: TCP
         - containerPort: 9443
           protocol: TCP
-        resources:
-          limits:
-            cpu: '2'
+        # resources:
+        #   limits:
+        #     cpu: '2'
       securityContext: {}
 ---
 apiVersion: v1
