@@ -9,7 +9,7 @@ metadata:
   name: megaweb
   namespace: megabank
 spec:
-  replicas: 15
+  replicas: 10
   selector:
     matchLabels:
       deployment: megaweb
@@ -128,9 +128,9 @@ spec:
           protocol: TCP
         - containerPort: 9443
           protocol: TCP
-        # resources:
-          # limits:
-          #   cpu: '2'
+        resources:
+          limits:
+            cpu: '1'
       securityContext: {}
 ---
 apiVersion: v1
