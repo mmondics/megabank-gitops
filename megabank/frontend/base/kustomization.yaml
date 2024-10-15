@@ -15,6 +15,7 @@ vars:
       kind: ConfigMap
       name: cluster-config
       apiVersion: v1
+      namespace: megabank
     fieldref:
       fieldpath: data.cpu_limit
 
