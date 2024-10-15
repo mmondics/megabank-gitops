@@ -16,5 +16,5 @@ vars:
     fieldref:
       fieldpath: data.cpu_limit
 
-patchesStrategicMerge:
-  - cpu-limits-patch.yaml
+# patchesStrategicMerge:
+#   - cpu-limits-patch.yaml
