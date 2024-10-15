@@ -2,6 +2,11 @@
 resources:
   - deployment.yaml
 
+configMapGenerator:
+  - name: cluster-config
+    literals:
+      - cpu_limit=2
+
 vars:
   - name: CPU_LIMIT
     objref:
@@ -10,3 +15,6 @@ vars:
       apiVersion: v1
     fieldref:
       fieldpath: data.cpu_limit
+
+patchesStrategicMerge:
+  - cpu-limits-patch.yaml
