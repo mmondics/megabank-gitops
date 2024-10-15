@@ -1,9 +1,4 @@
-# megabank-gitops/megaweb/overlays/sdmt/kustomization.yaml
 bases:
   - ../../base
-configMapGenerator:
-  - name: cluster-config
-    namespace: megabank
-    behavior: merge
-    literals:
-      - cpu_limit=4
+patchesStrategicMerge:
+  - deployment-patch.yaml

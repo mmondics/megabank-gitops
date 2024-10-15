@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: megaweb
+spec:
+  template:
+    spec:
+      containers:
+        - name: megaweb
+          resources:
+            limits:
+              cpu: "2"

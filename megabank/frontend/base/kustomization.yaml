@@ -2,12 +2,12 @@
 resources:
   - deployment.yaml
 
-configMapGenerator:
-  - name: cluster-config
-    behavior: merge
-    namespace: megabank
-    literals:
-      - cpu_limit=2
+# configMapGenerator:
+#   - name: cluster-config
+#     behavior: merge
+#     namespace: megabank
+#     literals:
+#       - cpu_limit=2
 
 vars:
   - name: CPU_LIMIT
