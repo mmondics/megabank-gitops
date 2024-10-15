@@ -1,0 +1,7 @@
+# megabank-gitops/megaweb/overlays/sdmtz/kustomization.yaml
+bases:
+  - ../../base
+configMapGenerator:
+  - name: cluster-config
+    literals:
+      - cpu_limit=2

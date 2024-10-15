@@ -130,7 +130,7 @@ spec:
           protocol: TCP
         resources:
           limits:
-            cpu: '4'
+            cpu: "$(CPU_LIMIT)"
       securityContext: {}
 ---
 apiVersion: v1

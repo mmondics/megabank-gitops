@@ -1,0 +1,12 @@
+# megabank-gitops/megaweb/base/kustomization.yaml
+resources:
+  - deployment.yaml
+
+vars:
+  - name: CPU_LIMIT
+    objref:
+      kind: ConfigMap
+      name: cluster-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.cpu_limit
