@@ -1,3 +1,0 @@
-# megabank-gitops/megaweb/base/kustomization.yaml
-resources:
-  - deployment.yaml
