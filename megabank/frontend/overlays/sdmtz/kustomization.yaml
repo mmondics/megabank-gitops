@@ -1,6 +1,6 @@
 # megabank-gitops/megaweb/overlays/sdmtz/kustomization.yaml
 bases:
-  - ../../base
+  - ../base
 configMapGenerator:
   - name: cluster-config
     namespace: megabank
