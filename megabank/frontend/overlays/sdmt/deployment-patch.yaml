@@ -10,4 +10,4 @@ spec:
         - name: megaweb
           resources:
             limits:
-              cpu: "4"
+              cpu: "2"
