@@ -3,6 +3,7 @@ bases:
   - ../../base
 configMapGenerator:
   - name: cluster-config
+    namespace: megabank
     behavior: merge
     literals:
       - cpu_limit=2

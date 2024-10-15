@@ -5,6 +5,7 @@ resources:
 configMapGenerator:
   - name: cluster-config
     behavior: merge
+    namespace: megabank
     literals:
       - cpu_limit=2
 
