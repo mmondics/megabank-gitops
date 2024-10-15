@@ -3,5 +3,6 @@ bases:
   - ../../base
 configMapGenerator:
   - name: cluster-config
+    behavior: merge
     literals:
       - cpu_limit=4
