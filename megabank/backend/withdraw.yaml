@@ -9,6 +9,7 @@ metadata:
   name: withdraw
   namespace: megabank-be
 spec:
+  replicas: 2
   selector:
     matchLabels:
       deployment: withdraw
