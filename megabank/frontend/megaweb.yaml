@@ -128,9 +128,10 @@ spec:
           protocol: TCP
         - containerPort: 9443
           protocol: TCP
-        resources:
-          limits:
-            cpu: '2'
+        ## CPU limits are enforced by LimitRange defaults 
+        # resources:
+        #   limits:
+        #     cpu: '2'
       securityContext: {}
 ---
 apiVersion: v1
