@@ -9,7 +9,7 @@ metadata:
   name: accounts
   namespace: megabank-be
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       deployment: accounts

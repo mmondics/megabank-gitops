@@ -9,7 +9,6 @@ metadata:
   name: history
   namespace: megabank-be
 spec:
-  replicas: 2
   selector:
     matchLabels:
       deployment: history
