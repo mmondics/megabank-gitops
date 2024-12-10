@@ -9,7 +9,7 @@ metadata:
   name: megaweb
   namespace: megabank
 spec:
-  replicas: 12
+  replicas: 6
   selector:
     matchLabels:
       deployment: megaweb
