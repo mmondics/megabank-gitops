@@ -64,7 +64,7 @@ spec:
             configMapKeyRef:
               key: JDBCNAME
               name: cm-setenv-mbsvc
-        image: quay.io/maduddin/mbsvc:latest
+        image: quay.io/mmondics/mmondics/mbsvc:v3-max2500-min100-60s 
         imagePullPolicy: IfNotPresent
         name: mbsvc-login
         ports:
