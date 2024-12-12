@@ -64,7 +64,7 @@ spec:
             configMapKeyRef:
               key: JDBCNAME
               name: setenv-megawebutil
-        image: quay.io/mmondics/mbutil:090624-manifest
+        image: quay.io/maduddin/mbutil:latest
         imagePullPolicy: IfNotPresent
         name: mbutil
         ports:
