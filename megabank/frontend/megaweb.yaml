@@ -120,7 +120,7 @@ spec:
             configMapKeyRef:
               key: WITHDRAW_SVC_HOST
               name: setenv-jdbc-svc-client-megaweb
-        image: quay.io/mmondics/mmondics/megaweb:v2
+        image: quay.io/mmondics/megaweb:090624-manifest
         imagePullPolicy: IfNotPresent
         name: megaweb
         ports:
