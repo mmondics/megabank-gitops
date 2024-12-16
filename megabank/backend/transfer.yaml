@@ -65,9 +65,7 @@ spec:
             configMapKeyRef:
               key: JDBCNAME
               name: cm-setenv-mbsvc
-        - name: LOGGING_LEVEL
-          value: debug
-        image: quay.io/mmondics/mmondics/mbsvc:20241216165521 
+        image: quay.io/maduddin/mbsvc:latest 
         imagePullPolicy: IfNotPresent
         name: mbsvc-transfer
         ports:
