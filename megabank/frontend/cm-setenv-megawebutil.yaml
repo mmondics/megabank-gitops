@@ -4,7 +4,7 @@ metadata:
   name: setenv-megawebutil
   namespace: megabank
 data:
-  ALLOW_DUP_LOGON: "false"
+  ALLOW_DUP_LOGON: "true"
   AUTOCOMMIT: "false"
   DBHOST: "c-db2ucluster-db2u.db2.svc.cluster.local"
   DBNAME: "megabank"
