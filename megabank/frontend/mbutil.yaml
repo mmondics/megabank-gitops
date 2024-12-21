@@ -72,9 +72,9 @@ spec:
           protocol: TCP
         - containerPort: 9080
           protocol: TCP
-        resources:
-          limits:
-            cpu: '1'
+        # resources:
+        #   limits:
+        #     cpu: '1'
 
 ---
 apiVersion: v1
