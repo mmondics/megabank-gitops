@@ -17,6 +17,8 @@ spec:
       labels:
         deployment: deposit
     spec:
+      nodeSelector:
+        role: backend
       containers:
       - env:
         - name: ALTSQL_FILE

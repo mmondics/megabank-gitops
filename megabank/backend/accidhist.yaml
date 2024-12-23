@@ -18,6 +18,8 @@ spec:
       labels:
         deployment: accidhist
     spec:
+      nodeSelector:
+        role: backend
       containers:
       - env:
         - name: ALTSQL_FILE

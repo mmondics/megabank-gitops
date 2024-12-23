@@ -17,6 +17,8 @@ spec:
       labels:
         deployment: megaweb
     spec:
+      nodeSelector:
+        role: frontend
       containers:
       - env:
         - name: ACCIDHISTORY_SVC_HOST

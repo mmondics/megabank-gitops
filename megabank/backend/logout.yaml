@@ -17,6 +17,8 @@ spec:
       labels:
         deployment: logout
     spec:
+      nodeSelector:
+        role: backend
       containers:
       - env:
         - name: ALTSQL_FILE
